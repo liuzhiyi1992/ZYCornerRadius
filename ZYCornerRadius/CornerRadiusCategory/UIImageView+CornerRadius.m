@@ -148,16 +148,21 @@ const char kBorderColor;
     }
 }
 
-- (void)dealloc {
+- (void)zy_dealloc {
     if (self.hadAddObserver) {
         [self removeObserver:self forKeyPath:@"image"];
     }
+    [self zy_dealloc];
 }
 
 - (void)validateFrame {
     if (self.frame.size.width == 0) {
         [self.class swizzleMethod:@selector(layoutSubviews) anotherMethod:@selector(zy_LayoutSubviews)];
     }
+}
+
++ (void)load {
+    [self swizzleMethod:NSSelectorFromString(@"dealloc") anotherMethod:@selector(zy_dealloc)];
 }
 
 + (void)swizzleMethod:(SEL)oneSel anotherMethod:(SEL)anotherSel {
