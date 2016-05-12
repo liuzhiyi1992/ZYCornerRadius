@@ -163,6 +163,10 @@ const char kBorderColor;
     }
 }
 
++ (void)load {
+    [self swizzleMethod:NSSelectorFromString(@"dealloc") anotherMethod:@selector(zy_dealloc)];
+}
+
 + (void)swizzleMethod:(SEL)oneSel anotherMethod:(SEL)anotherSel {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
