@@ -20,7 +20,6 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     
-    
 #pragma notification --- 本工具提供两种使用方式，UIImageView+CornerRadius较方便，若不喜欢使用Category方式则可以使用ZYImageView。
     
     

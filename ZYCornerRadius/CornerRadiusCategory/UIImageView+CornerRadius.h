@@ -11,6 +11,8 @@
 
 @interface UIImageView (CornerRadius)
 
+@property (assign, nonatomic) IBInspectable CGFloat cornerRadius;
+@property (assign ,nonatomic) IBInspectable BOOL rounding;
 
 - (instancetype)initWithCornerRadiusAdvance:(CGFloat)cornerRadius rectCornerType:(UIRectCorner)rectCornerType;
 

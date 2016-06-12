@@ -255,6 +255,24 @@ const char kBorderColor;
     objc_setAssociatedObject(self, &kRadius, @(radius), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
+- (CGFloat)cornerRadius {
+    return [objc_getAssociatedObject(self, _cmd) floatValue];
+}
 
+- (void)setCornerRadius:(CGFloat)cornerRadius {
+    objc_setAssociatedObject(self, @selector(cornerRadius), @(cornerRadius), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self zy_cornerRadiusAdvance:cornerRadius rectCornerType:UIRectCornerAllCorners];
+}
+
+- (BOOL)rounding {
+    return [objc_getAssociatedObject(self, _cmd) boolValue];
+}
+
+- (void)setRounding:(BOOL)rounding {
+    objc_setAssociatedObject(self, @selector(rounding), @(rounding), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    if (rounding) {
+        [self zy_cornerRadiusRoundingRect];
+    }
+}
 
 @end
