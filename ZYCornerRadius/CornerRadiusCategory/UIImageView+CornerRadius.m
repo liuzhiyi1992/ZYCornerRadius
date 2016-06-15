@@ -70,8 +70,6 @@ const char kBorderColor;
  * @brief clip the cornerRadius with image, UIImageView must be setFrame before, no off-screen-rendered
  */
 - (void)zy_cornerRadiusWithImage:(UIImage *)image cornerRadius:(CGFloat)cornerRadius rectCornerType:(UIRectCorner)rectCornerType {
-    objc_setAssociatedObject(image, &kProcessedImage, @(1), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    self.image = image;
     CGSize size = self.bounds.size;
     CGFloat scale = [UIScreen mainScreen].scale;
     CGSize cornerRadii = CGSizeMake(cornerRadius, cornerRadius);
@@ -95,8 +93,6 @@ const char kBorderColor;
  * @brief clip the cornerRadius with image, draw the backgroundColor you want, UIImageView must be setFrame before, no off-screen-rendered, no Color Blended layers
  */
 - (void)zy_cornerRadiusWithImage:(UIImage *)image cornerRadius:(CGFloat)cornerRadius rectCornerType:(UIRectCorner)rectCornerType backgroundColor:(UIColor *)backgroundColor {
-    objc_setAssociatedObject(image, &kProcessedImage, @(1), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    self.image = image;
     CGSize size = self.bounds.size;
     CGFloat scale = [UIScreen mainScreen].scale;
     CGSize cornerRadii = CGSizeMake(cornerRadius, cornerRadius);
